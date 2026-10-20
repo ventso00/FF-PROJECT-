@@ -1,6 +1,70 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --font-display: Teko, Impact, sans-serif;
+  --font-body: Rajdhani, "Segoe UI", sans-serif;
+  --color-ember-50: #fff5ed;
+  --color-ember-100: #ffe8d4;
+  --color-ember-200: #fecca8;
+  --color-ember-300: #fda671;
+  --color-ember-400: #fb7a38;
+  --color-ember-500: #ff5f1f;
+  --color-ember-600: #f04a0c;
+  --color-ember-700: #c73a0c;
+  --color-ember-800: #9e3012;
+  --color-ember-900: #7f2a12;
+  --color-ember-950: #451204;
+  --color-ash-50: #f6f6f7;
+  --color-ash-100: #e2e2e5;
+  --color-ash-200: #c6c6cb;
+  --color-ash-300: #a1a1a8;
+  --color-ash-400: #7a7a83;
+  --color-ash-500: #5c5c64;
+  --color-ash-600: #47474e;
+  --color-ash-700: #37373d;
+  --color-ash-800: #232327;
+  --color-ash-900: #151518;
+  --color-ash-950: #0b0b0d;
+  --animate-fade-up: fade-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-fade-in: fade-in 0.5s ease both;
+  --animate-ken-burns: ken-burns 22s ease-in-out infinite;
+  --animate-pulse-glow: pulse-glow 2.2s ease-out infinite;
+  --animate-flicker: flicker 3s linear infinite;
+  --animate-marquee: marquee 26s linear infinite;
+}
+
+@keyframes fade-up {
+  0% { opacity: 0; transform: translateY(18px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes ken-burns {
+  0% { transform: scale(1.05) translate(0, 0); }
+  50% { transform: scale(1.15) translate(-1.5%, -1.5%); }
+  100% { transform: scale(1.05) translate(0, 0); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 95, 31, 0.45); }
+  50% { box-shadow: 0 0 0 8px rgba(255, 95, 31, 0); }
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  45% { opacity: 0.85; }
+  55% { opacity: 1; }
+  70% { opacity: 0.9; }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
 
 @layer base {
   html {
