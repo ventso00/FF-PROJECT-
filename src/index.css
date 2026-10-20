@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-ash-950 font-body text-ash-100 antialiased;
+    background-image:
+      radial-gradient(60rem 30rem at 80% -10%, rgba(255, 95, 31, 0.08), transparent 60%),
+      radial-gradient(50rem 26rem at 0% 20%, rgba(255, 184, 0, 0.05), transparent 60%);
+    background-attachment: fixed;
+  }
+  ::selection {
+    @apply bg-ember-500 text-white;
+  }
+  h1, h2, h3 {
+    @apply font-display;
+    letter-spacing: 0.02em;
+  }
+}
+
+@layer components {
+  .btn-fire {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-ember-600 via-ember-500 to-amber-500 px-5 py-2.5 text-sm font-bold uppercase tracking-wide text-white shadow-lg shadow-ember-500/25 transition duration-200 hover:shadow-xl hover:shadow-ember-500/40 hover:brightness-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-ember-400 focus-visible:ring-offset-2 focus-visible:ring-offset-ash-950 disabled:opacity-60;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg border border-white/15 bg-white/5 px-5 py-2.5 text-sm font-bold uppercase tracking-wide text-ash-100 transition duration-200 hover:border-ember-400/60 hover:bg-white/10 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-ember-400 focus-visible:ring-offset-2 focus-visible:ring-offset-ash-950;
+  }
+  .card-dark {
+    @apply rounded-xl border border-white/10 bg-ash-900/80 shadow-md shadow-black/30 transition duration-300;
+  }
+  .card-hover {
+    @apply hover:-translate-y-1 hover:border-ember-500/50 hover:shadow-lg hover:shadow-ember-500/10;
+  }
+  .input-dark {
+    @apply w-full rounded-lg border border-white/15 bg-ash-950/60 px-3 py-2 text-sm text-ash-100 placeholder-ash-500 transition focus:border-ember-500 focus:outline-none focus:ring-2 focus:ring-ember-500/30;
+  }
+  .label-dark {
+    @apply mb-1.5 block text-xs font-semibold uppercase tracking-wider text-ash-300;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1 rounded-full border border-white/10 bg-white/5 px-2.5 py-0.5 text-xs font-semibold uppercase tracking-wide;
+  }
+  .heading-glare {
+    @apply bg-gradient-to-b from-white via-ash-100 to-ash-400 bg-clip-text text-transparent;
+  }
+  .text-fire {
+    @apply bg-gradient-to-r from-ember-400 via-ember-500 to-amber-400 bg-clip-text text-transparent;
+  }
+}
