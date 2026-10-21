@@ -6,7 +6,7 @@ MadaFF Hub est organisé en monorepo pour séparer clairement l’interface web,
 
 - `frontend/` : application React + TypeScript + Vite, styles Tailwind et routes publiques.
 - `backend/supabase/` : configuration Supabase, migrations SQL, données d’exemple et fonctions Edge.
-- `docs/` : architecture, développement, déploiement et conventions du projet.
+- `docs/` : architecture, développement, déploiement, veille d’actualité et conventions du projet.
 - `release/` : notes et checklist de publication.
 - `.github/workflows/` : vérifications automatiques sur chaque push et pull request.
 - `vercel.json` : configuration de build et de routage SPA Vercel.

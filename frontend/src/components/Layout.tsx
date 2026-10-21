@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useRoute } from 'wouter';
-import { Gamepad2, Home, LayoutDashboard, Swords, Users, CalendarPlus, Video } from 'lucide-react';
+import { Gamepad2, Home, LayoutDashboard, Swords, Users, CalendarPlus, Video, Newspaper } from 'lucide-react';
 
 const links = [
   { href: '/', label: 'Accueil', icon: Home },
@@ -8,6 +8,7 @@ const links = [
   { href: '/equipes', label: 'Équipes', icon: Users },
   { href: '/createurs', label: 'Créateurs', icon: Video },
   { href: '/proposer', label: 'Proposer', icon: CalendarPlus },
+  { href: '/actualites', label: 'Actualités', icon: Newspaper },
   { href: '/admin', label: 'Admin', icon: LayoutDashboard },
 ];
 
@@ -18,10 +19,11 @@ export function Header() {
   const [isTeams] = useRoute('/equipes/:slug?');
   const [isCreators] = useRoute('/createurs/:slug?');
   const [isPropose] = useRoute('/proposer');
+  const [isNews] = useRoute('/actualites');
   const [isAdmin] = useRoute('/admin');
 
   const activeFor = (href: string) =>
-    href === '/' ? isHome : href === '/evenements' ? isActive : href === '/equipes' ? isTeams : href === '/createurs' ? isCreators : href === '/proposer' ? isPropose : isAdmin;
+    href === '/' ? isHome : href === '/evenements' ? isActive : href === '/equipes' ? isTeams : href === '/createurs' ? isCreators : href === '/proposer' ? isPropose : href === '/actualites' ? isNews : isAdmin;
 
   return (
     <header className="sticky top-0 z-40 border-b border-white/10 bg-ash-950/85 backdrop-blur-md">

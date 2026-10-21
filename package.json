@@ -9,7 +9,8 @@
     "build": "npm --workspace frontend run build",
     "typecheck": "npm --workspace frontend run typecheck",
     "lint": "npm --workspace frontend run lint",
-    "audit": "npm audit --audit-level=moderate"
+    "audit": "npm audit --audit-level=moderate",
+    "news:update": "node scripts/update-news.mjs"
   },
   "engines": {
     "node": ">=22"

@@ -4,6 +4,7 @@ import { supabase } from '@/lib/supabase';
 import type { Creator, EventRow, Team } from '@/lib/types';
 import { EventCard } from '@/components/EventCard';
 import { Page, EmptyState } from '@/components/Common';
+import NewsFeed from '@/components/NewsFeed';
 import {
   ArrowRight, CalendarPlus, Megaphone, Search, ShieldCheck, Users, Video, Flame, ChevronRight,
 } from 'lucide-react';
@@ -131,18 +132,18 @@ export default function HomePage() {
           <p className="animate-fade-up inline-flex items-center gap-2 rounded-full border border-ember-500/40 bg-ember-500/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-ember-300">
             <Flame className="h-4 w-4 animate-flicker" aria-hidden /> Communauté Free Fire · Madagascar
           </p>
-          <h1 className="mt-4 max-w-3xl animate-fade-up font-display text-5xl font-bold uppercase leading-[0.95] tracking-wide text-white [animation-delay:100ms] sm:text-6xl lg:text-7xl">
+          <h1 className="mt-4 max-w-3xl animate-fade-up font-display text-4xl font-bold uppercase leading-[0.95] tracking-wide text-white [animation-delay:100ms] sm:text-6xl lg:text-7xl">
             Trouvez les <span className="text-fire">tournois</span>, les équipes et les annonces de la scène <span className="text-fire">malgache</span>.
           </h1>
           <p className="mt-4 max-w-xl animate-fade-up text-base leading-relaxed text-ash-200 [animation-delay:200ms] sm:text-lg">
             MadaFF Hub rassemble les événements communautaires vérifiés, l'annuaire des équipes et les informations
             fiables — au même endroit, gratuitement, sans compte obligatoire.
           </p>
-          <div className="mt-7 flex flex-wrap gap-3 animate-fade-up [animation-delay:300ms]">
-            <Link href="/evenements" className="btn-fire animate-pulse-glow text-base">
+          <div className="mt-7 flex flex-col gap-3 animate-fade-up [animation-delay:300ms] sm:flex-row sm:flex-wrap">
+            <Link href="/evenements" className="btn-fire w-full justify-center animate-pulse-glow text-base sm:w-auto">
               <Search className="h-5 w-5" aria-hidden /> Découvrir les événements
             </Link>
-            <Link href="/proposer" className="btn-ghost text-base">
+            <Link href="/proposer" className="btn-ghost w-full justify-center text-base sm:w-auto">
               <CalendarPlus className="h-5 w-5" aria-hidden /> Organisateur : proposer un événement
             </Link>
           </div>
@@ -157,6 +158,15 @@ export default function HomePage() {
             <p className="text-sm font-medium leading-relaxed text-ember-100">{announcement}</p>
           </div>
         )}
+
+        <section className="mt-10" aria-labelledby="news-title">
+          <div className="mb-5 flex flex-wrap items-end justify-between gap-3">
+            <h2 id="news-title" className="font-display text-3xl font-semibold uppercase tracking-wide heading-glare sm:text-4xl">
+              Actualités <span className="text-fire">du jour</span>
+            </h2>
+          </div>
+          <NewsFeed compact />
+        </section>
 
         {loadError && (
           <div className="mt-6">

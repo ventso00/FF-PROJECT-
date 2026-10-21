@@ -8,6 +8,7 @@ import TeamDetailPage from '@/pages/TeamDetailPage';
 import CreatorsPage from '@/pages/CreatorsPage';
 import CreatorDetailPage from '@/pages/CreatorDetailPage';
 import ProposeEventPage from '@/pages/ProposeEventPage';
+import NewsPage from '@/pages/NewsPage';
 import AdminPage from '@/pages/AdminPage';
 import PrivacyPage from '@/pages/PrivacyPage';
 import NotFoundPage from '@/pages/NotFoundPage';
@@ -26,6 +27,7 @@ function App() {
           <Route path="/createurs" component={CreatorsPage} />
           <Route path="/createurs/:slug" component={CreatorDetailPage} />
           <Route path="/proposer" component={ProposeEventPage} />
+          <Route path="/actualites" component={NewsPage} />
           <Route path="/admin" component={AdminPage} />
           <Route path="/confidentialite" component={PrivacyPage} />
           <Route component={NotFoundPage} />

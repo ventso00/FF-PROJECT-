@@ -30,3 +30,7 @@ Configurer dans Vercel, pour Production, Preview et Development :
 - `VITE_SUPABASE_ANON_KEY`
 
 Après chaque push sur `main`, Vercel reconstruit le frontend. Ne jamais mettre les valeurs de ces variables dans GitHub.
+
+## Actualités quotidiennes
+
+Le workflow `.github/workflows/news-sync.yml` met à jour chaque jour le fichier public `frontend/public/news.json`. Il peut être lancé immédiatement depuis l’onglet Actions avec `workflow_dispatch`. Voir [`docs/news.md`](news.md) pour les règles de fraîcheur et de validation.
