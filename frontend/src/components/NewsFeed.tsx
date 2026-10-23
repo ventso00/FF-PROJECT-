@@ -12,13 +12,9 @@ export default function NewsFeed({ compact = false }: { compact?: boolean }) {
     loadNews().then(setItems).catch(() => setError(true));
   }, []);
 
-  if (items === null && !error) return <Spinner label="Chargement des actualités…" />;
-  if (error) {
-    return <EmptyState title="Actualités momentanément indisponibles" hint="La veille sera actualisée automatiquement." />;
-  }
-  if (!items?.length) {
-    return <EmptyState title="Aucune actualité vérifiée aujourd’hui" hint="Les nouvelles sources seront examinées lors de la prochaine veille." />;
-  }
+  if (items === null && !error) return <Spinner label="Analyse des actualités…" />;
+  if (error) return <EmptyState title="Actualités momentanément indisponibles" hint="La veille sera actualisée au prochain lancement." />;
+  if (!items?.length) return <EmptyState title="Aucune actualité récente et localisée" hint="Les sources publiques seront réanalysées au prochain lancement." />;
 
   const visible = compact ? items.slice(0, 3) : items;
   return (
@@ -30,7 +26,8 @@ export default function NewsFeed({ compact = false }: { compact?: boolean }) {
               <Newspaper className="h-4 w-4" aria-hidden />
             </span>
             <div className="min-w-0 flex-1">
-              <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-[11px] font-semibold uppercase tracking-wider text-ash-500">
+              <div className="flex flex-wrap items-center gap-2 text-[11px] font-semibold uppercase tracking-wider text-ash-500">
+                <span className="rounded-full bg-ember-500/15 px-2 py-0.5 text-ember-300">{item.category}</span>
                 <span>{item.source}</span><span aria-hidden>·</span><time dateTime={item.publishedAt}>{formatNewsDate(item.publishedAt)}</time>
               </div>
               <h3 className="mt-1 text-base font-bold leading-snug text-white sm:text-lg">{item.title}</h3>

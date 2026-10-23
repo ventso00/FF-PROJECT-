@@ -5,8 +5,8 @@
   "description": "MadaFF Hub — plateforme communautaire Free Fire à Madagascar",
   "workspaces": ["frontend"],
   "scripts": {
-    "dev": "npm --workspace frontend run dev",
-    "build": "npm --workspace frontend run build",
+    "dev": "npm run news:update && npm --workspace frontend run dev",
+    "build": "npm run news:update && npm --workspace frontend run build",
     "typecheck": "npm --workspace frontend run typecheck",
     "lint": "npm --workspace frontend run lint",
     "audit": "npm audit --audit-level=moderate",

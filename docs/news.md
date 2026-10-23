@@ -1,9 +1,9 @@
 # Veille des actualités Free Fire Madagascar
 
-Le workflow GitHub `MadaFF daily news sync` s’exécute chaque jour à 05:15 UTC et peut aussi être lancé manuellement. Il interroge des flux publics Google News ciblés, filtre les titres liés à Free Fire et exige un indice explicite de localisation malgache.
+La veille est exécutée à deux moments : à chaque `npm run build` (donc à chaque déploiement Vercel) et chaque jour via le workflow GitHub `MadaFF daily news sync`, qui peut aussi être lancé manuellement.
 
-Le flux produit `frontend/public/news.json`, qui est affiché sur l’accueil et la page `/actualites`. Les éléments portent leur source, leur lien et leur date. Ils sont présentés comme non vérifiés tant qu’un modérateur ne les a pas confirmés.
+Le script interroge plusieurs recherches publiques ciblées : tournois Free Fire Madagascar, équipes/joueurs/créateurs, FFWS Afrique et actualités générales. Il filtre les éléments vieux de plus de quatorze jours, exige un indice explicite de localisation malgache, déduplique les résultats et les classe en `Tournois`, `Communauté`, `Compétition` ou `Actualités`.
 
-Le filtre conserve uniquement les quatorze derniers jours. Il est volontairement conservateur : une journée sans résultat fiable affiche « Aucune actualité vérifiée aujourd’hui ». Les groupes Facebook privés, les publications nécessitant une connexion et les contenus non accessibles publiquement ne sont pas contournés.
+Le résultat est écrit dans `frontend/public/news.json`, puis affiché sur l’accueil et `/actualites`, avec source, date, catégorie et lien original. Les éléments restent indiqués comme non vérifiés tant qu’un modérateur ne les a pas confirmés.
 
-Pour une veille éditoriale réellement exhaustive, ajouter ensuite des flux RSS officiels ou des sources partenaires locales dans `scripts/update-news.mjs`, avec l’accord de leurs propriétaires.
+Le système ne peut pas garantir toutes les nouvelles publiées sur Internet : les groupes privés, les pages nécessitant une connexion et les publications sans flux public ne sont pas contournés. Si aucune source récente et localisée n’est disponible, le site affiche un état vide honnête au lieu d’inventer une actualité.

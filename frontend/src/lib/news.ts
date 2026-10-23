@@ -1,3 +1,5 @@
+export type NewsCategory = 'Tournois' | 'Communauté' | 'Compétition' | 'Actualités';
+
 export interface NewsItem {
   id: string;
   title: string;
@@ -6,6 +8,7 @@ export interface NewsItem {
   source: string;
   publishedAt: string;
   region: string;
+  category: NewsCategory;
   verified: boolean;
 }
 
